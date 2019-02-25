@@ -30,10 +30,10 @@ function affichage(){
 // 2 Tu vas faire que si quelqu'un clique sur ce bouton, l'élément HTML portant l'Id navbarHeader perde sa classe collapse. Une fois que ça, ça marche, fait que si on clique à nouveau dessus, la classe collapse soit rajoutée à nouveau à l'élément portant l'Id navbarHeader
 
 // lets get the item to modify
-let navbarheader = document.getElementById("navbarHeader")
+let navbarHeader = document.getElementById("navbarHeader")
 // console.log(navbarheader)
 // lets get the button
-let hambutton = document.querySelectorAll("header .navbar-toggler")[0]
+let hamButton = document.querySelectorAll("header .navbar-toggler")[0]
 
 
 // create a variable to know if collapse is here or not
@@ -41,7 +41,7 @@ let collapsestatus = true
 
 
 // add event on the hamburger button
-hambutton.addEventListener('click',function(){
+hamButton.addEventListener('click',function(){
 	console.log("tu viens de cliquer sur le header/navbar !");
 	navbarheadercollapser()
 });
@@ -49,16 +49,15 @@ hambutton.addEventListener('click',function(){
 function navbarheadercollapser() {
 
 	if (collapsestatus == true){
-		navbarheader.classList.remove("collapse");
+		navbarHeader.classList.remove("collapse");
 		collapsestatus = false
 		console.log("tadam !");
 
 	}
 	else if (collapsestatus == false){
-		navbarheader.classList.add("collapse");
+		navbarHeader.classList.add("collapse");
 		collapsestatus = true
 		console.log("disparut !");
-
 	}
 };
 
@@ -129,9 +128,45 @@ function secondcardtextcolorchanger() {
 // 5 si un utilisateur double clique sur la navbar en haut, tout Bootstrap disparaît et la page s'affiche comme si on avait oublié de mettre le CDN qui la relie au fichier CSS. Si possible, rends cette fonctionnalité réversible (un nouveau double-clic fait tout revenir à la normale).
 
 
+let csser = document.querySelectorAll("head,link")[1]
+console.log("voici le head du site : (csser)")
+console.log(csser)
+console.log("voici le liens a modifier (-> csser.href)")
+console.log(csser.href)
 
 
+let navbar = document.querySelectorAll("header")[0]
+//console.log(navbar)
 
+// declare var to know if there is boobstrap link in head
+let isboobstrappresent = true
+
+navbar.addEventListener('dblclick', function() {
+		console.log("tu viens de double cliquer !");
+
+	boopstraphidding()
+
+});
+
+
+function boopstraphidding() {
+
+		console.log("dans la fonction!");
+
+
+	if (isboobstrappresent === true){
+		console.log("sans boobstrap !");
+		csser.setAttribute("href", "");
+		isboobstrappresent = false
+	}
+
+	else if (isboobstrappresent === false){
+		console.log("avec boobstrap !");
+		csser.setAttribute("href", "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+		isboobstrappresent = true
+	}
+
+	};
 
 
 
