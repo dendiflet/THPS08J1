@@ -187,15 +187,15 @@ let card = cards[count];
 
 // select the button edit from this card
 let viewbutton = card.getElementsByClassName("btn-success")[0];
-console.log(viewbutton)
+//console.log(viewbutton)
 // select text from this card 
 let paragraph = card.getElementsByTagName("p")[0];
-console.log(paragraph)
+//console.log(paragraph)
 let text = paragraph.innerHTML
-console.log(text)
+//console.log(text)
 // select image from the card
 let cardImg = card.getElementsByClassName("card-img-top")[0];
-console.log(cardImg)
+//console.log(cardImg)
 
 let moseovercounter = 0
 
@@ -239,30 +239,46 @@ function cardImgResizer() {
 // 7 si un utilisateur clique sur le bouton gris ==>, la dernière card (en bas à droite) va passer en premier (en haut à gauche). On va pouvoir faire tourner les cards !
 
 
+let buttonRight = document.getElementsByClassName("btn-secondary")[0];
+
+let cardsParent = document.getElementsByClassName("row")[1];
+console.log(cardsParent)
+
+buttonRight.addEventListener('click',function(){
+	console.log("tu viens de cliquer");
+
+	let firstCardOnTheList = document.getElementsByClassName("col-md-4")[0];
+	console.log(firstCardOnTheList)
+
+	let lastCardOnTheList = document.getElementsByClassName("col-md-4")[5]
+	console.log(lastCardOnTheList)
+
+
+	cardsParent.insertBefore(lastCardOnTheList, firstCardOnTheList)
+});
 
 
 
 
 
+// 8   et c'est parti dans l'autre sens !
 
 
+let buttonLeft = document.getElementsByClassName("btn-primary")[0];
 
 
+buttonLeft.addEventListener('click',function(){
+	console.log("tu viens de cliquer");
+
+	let firstCardOnTheList = document.getElementsByClassName("col-md-4")[0];
+	console.log(firstCardOnTheList)
+
+	let lastCardOnTheList = document.getElementsByClassName("col-md-4")[5]
+	console.log(lastCardOnTheList)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+	cardsParent.insertBefore(lastCardOnTheList, firstCardOnTheList)
+});
 
 
 
