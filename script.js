@@ -31,7 +31,7 @@ function affichage(){
 
 // lets get the item to modify
 let navbarheader = document.getElementById("navbarHeader")
-console.log(navbarheader)
+// console.log(navbarheader)
 // lets get the button
 let hambutton = document.querySelectorAll("header .navbar-toggler")[0]
 
@@ -66,10 +66,129 @@ function navbarheadercollapser() {
 // 3  si on clique sur le bouton "Edit" de la première card, le texte de la card va se mettre en rouge de façon irréversible (sauf si on recharge la page).
 
 
+// select the first card 
+let card1 = document.getElementsByClassName("card")[0];
+//console.log(card1)
+
+// select the button edit from this card
+let editbutton = card1.getElementsByClassName("btn-outline-secondary")[0];
+//console.log(editbutton)
+
+
+editbutton.addEventListener('click',function(){
+//	console.log("tu viens de cliquer sur le bouton edit de la 1ere carte !");
+//	console.log("(et le texte s'est changé en rouge)");
+	firstcardtextcolorchanger()
+});
+
+
+function firstcardtextcolorchanger() {
+	card1.style.color = 'red'
+}
+
+
 
 
 
 // 4  On va faire quelque chose de similaire à la fonctionnalité 3 mais un peu plus complexe : si on clique sur le bouton "Edit" de la deuxième card, le texte de la card va se mettre en vert. Si on re-clique dessus, il redevient comme avant ! Tu l'as compris, il va falloir que tu cherches comment faire un "toggle" sur le style du texte. C'est plus compliqué que sur une classe.
+
+
+
+// select the second card 
+let card2 = document.getElementsByClassName("card")[1];
+//console.log(card1)
+
+// select the button edit from this card
+let secondeditbutton = card2.getElementsByClassName("btn-outline-secondary")[0];
+//console.log(editbutton)
+
+
+secondeditbutton.addEventListener('click',function(){
+//	console.log("tu viens de cliquer sur le bouton edit de la 2eme carte !");
+//	console.log("(et le texte s'est changé en rouge)");
+	secondcardtextcolorchanger()
+});
+
+
+let colorstatuschanged = false
+function secondcardtextcolorchanger() {
+	if (colorstatuschanged == true){
+		card2.style.color = '';
+		colorstatuschanged = false
+		console.log("retour a la normale !");
+	}
+	else if (colorstatuschanged == false){
+		card2.style.color = 'green';
+		colorstatuschanged = true
+		console.log("texte en vert !");
+	}
+}
+
+
+
+// 5 si un utilisateur double clique sur la navbar en haut, tout Bootstrap disparaît et la page s'affiche comme si on avait oublié de mettre le CDN qui la relie au fichier CSS. Si possible, rends cette fonctionnalité réversible (un nouveau double-clic fait tout revenir à la normale).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
