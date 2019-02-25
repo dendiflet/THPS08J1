@@ -265,7 +265,7 @@ buttonRight.addEventListener('click',function(){
 
 
 let buttonLeft = document.getElementsByClassName("btn-primary")[0];
-
+let cardsToCopy
 
 buttonLeft.addEventListener('click',function(){
 	console.log("tu viens de cliquer");
@@ -273,11 +273,12 @@ buttonLeft.addEventListener('click',function(){
 	let firstCardOnTheList = document.getElementsByClassName("col-md-4")[0];
 	console.log(firstCardOnTheList)
 
-	let lastCardOnTheList = document.getElementsByClassName("col-md-4")[5]
-	console.log(lastCardOnTheList)
+	cardsToCopy = firstCardOnTheList
+
+	cardsParent.removeChild(firstCardOnTheList)
 
 
-	cardsParent.insertBefore(lastCardOnTheList, firstCardOnTheList)
+	cardsParent.appendChild(firstCardOnTheList);
 });
 
 
