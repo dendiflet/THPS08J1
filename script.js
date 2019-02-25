@@ -129,11 +129,11 @@ function secondcardtextcolorchanger() {
 
 
 let csser = document.querySelectorAll("head,link")[1]
-console.log("voici le head du site : (csser)")
+/* console.log("voici le head du site : (csser)")
 console.log(csser)
 console.log("voici le liens a modifier (-> csser.href)")
 console.log(csser.href)
-
+*/
 
 let navbar = document.querySelectorAll("header")[0]
 //console.log(navbar)
@@ -142,7 +142,7 @@ let navbar = document.querySelectorAll("header")[0]
 let isboobstrappresent = true
 
 navbar.addEventListener('dblclick', function() {
-		console.log("tu viens de double cliquer !");
+//		console.log("tu viens de double cliquer !");
 
 	boopstraphidding()
 
@@ -150,18 +150,16 @@ navbar.addEventListener('dblclick', function() {
 
 
 function boopstraphidding() {
-
-		console.log("dans la fonction!");
-
+//		console.log("dans la fonction!");
 
 	if (isboobstrappresent === true){
-		console.log("sans boobstrap !");
+//		console.log("sans boobstrap !");
 		csser.setAttribute("href", "");
 		isboobstrappresent = false
 	}
 
 	else if (isboobstrappresent === false){
-		console.log("avec boobstrap !");
+//		console.log("avec boobstrap !");
 		csser.setAttribute("href", "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
 		isboobstrappresent = true
 	}
@@ -170,15 +168,75 @@ function boopstraphidding() {
 
 
 
+// 6 si un utilisateur passe sa souris sur le bouton "View" d'une card (n'importe laquelle), celle-ci va se réduire. Cela veut dire que le texte disparaît, l'image n'apparaîtra qu'à 20 % de sa taille d'origine et les boutons "Edit" / "View" restent visibles. Cette fonction sera réversible : s'il repasse sa souris, la card redevient normale !
 
 
 
+// select all cards
+let cards = document.getElementsByClassName("card");
+
+// do boucle so the change can applicate to all cards
+for(let count = 0; count <= cards.length - 1; count++) {
+
+
+let card = cards[count];
+
+// select the first card 
+//let card = document.getElementsByClassName("card")[0];
+//console.log(card)
+
+// select the button edit from this card
+let viewbutton = card.getElementsByClassName("btn-success")[0];
+console.log(viewbutton)
+// select text from this card 
+let paragraph = card.getElementsByTagName("p")[0];
+console.log(paragraph)
+let text = paragraph.innerHTML
+console.log(text)
+// select image from the card
+let cardImg = card.getElementsByClassName("card-img-top")[0];
+console.log(cardImg)
+
+let moseovercounter = 0
+
+viewbutton.addEventListener('mouseover',function(){
+	console.log("tu viens de passer la souri sur le bouton");
+	moseovercounter += 1;
+	cardResizer()
+	cardImgResizer()
+});
+
+function cardResizer() {
+	console.log("tu est dans la fonction cardResizer");
+	console.log(`voici le conteur de passage ${moseovercounter}`);
+
+	if (moseovercounter%2 == 0){
+		console.log("conteur pair");
+		paragraph.innerHTML = text
+	}
+	else if (moseovercounter%2 != 0){
+		console.log("conteur impair");
+		paragraph.innerHTML = ""
+	}
+}
+
+function cardImgResizer() {
+//	console.log("tu est dans la fonction cardImgResizer");
+
+	if (moseovercounter%2 == 0){
+ 		cardImg.style.width = '100%'
+ 	}
+	else if (moseovercounter%2 != 0){
+		cardImg.style.width = '80%';
+	}
+}
+
+
+}
 
 
 
-
-
-
+// 7 si un utilisateur clique sur le bouton gris ==>, la dernière card (en bas à droite) va passer en premier (en haut à gauche). On va pouvoir faire tourner les cards !
 
 
 
